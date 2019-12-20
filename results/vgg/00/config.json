@@ -1,0 +1,71 @@
+{
+  "model_config": {
+    "arch": "vgg",
+    "input_shape": [
+      256,
+      3,
+      32,
+      32
+    ],
+    "n_classes": 10,
+    "n_channels": [
+      64,
+      128,
+      256,
+      512,
+      512
+    ],
+    "n_layers": [
+      2,
+      2,
+      3,
+      3,
+      3
+    ],
+    "use_bn": true
+  },
+  "optim_config": {
+    "epochs": 10,
+    "batch_size": 256,
+    "optimizer": "adam",
+    "base_lr": 0.1,
+    "weight_decay": 0.0001,
+    "no_weight_decay_on_bn": false,
+    "gradient_clip": 5.0,
+    "scheduler": "multistep",
+    "milestones": [
+      80,
+      120
+    ],
+    "lr_decay": 0.1,
+    "betas": [
+      0.9,
+      0.999
+    ]
+  },
+  "data_config": {
+    "dataset": "CIFAR10",
+    "n_classes": 10,
+    "num_workers": 0,
+    "batch_size": 256,
+    "use_horizontal_flip": true,
+    "use_label_smoothing": true,
+    "label_smoothing_epsilon": 0.1,
+    "reset_data": true,
+    "use_random_crop": false,
+    "use_cutout": false,
+    "use_dual_cutout": false,
+    "use_random_erasing": false,
+    "use_mixup": false,
+    "use_ricap": false,
+    "use_gpu": false
+  },
+  "run_config": {
+    "outdir": "results/vgg/00",
+    "seed": 17,
+    "test_first": false,
+    "device": "cpu",
+    "fp16": false,
+    "use_amp": false
+  }
+}
